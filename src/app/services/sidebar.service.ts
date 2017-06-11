@@ -5,6 +5,7 @@ import { SidebarMenuItemModel } from '../models/sidebar-menu-item.model';
 export class SidebarService {
 
   private menuItems: Array<SidebarMenuItemModel> = [];
+  private mobileMenuCollapsed = true;
 
   /**
    * Register new menu item
@@ -23,5 +24,21 @@ export class SidebarService {
   public getMenuItemsSorted(): Array<SidebarMenuItemModel> {
     return this.menuItems
       .sort((a: SidebarMenuItemModel, b: SidebarMenuItemModel) => (a.order - b.order));
+  }
+
+  /**
+   * Toggle mobile menu collapse status
+   */
+  public mobileMenuCollapseToggle(): void {
+    this.mobileMenuCollapsed = !this.mobileMenuCollapsed;
+  }
+
+  /**
+   * Get mobile menu collapse status
+   *
+   * @returns {boolean}
+   */
+  public getMobileMenuCollapseStatus(): boolean {
+    return this.mobileMenuCollapsed;
   }
 }

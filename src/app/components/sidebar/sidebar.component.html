@@ -1,5 +1,10 @@
-<ul>
-  <li *ngFor="let item of items">
-    <a [routerLink]="item.routerLink" routerLinkActive="active">{{item.title}}</a>
-  </li>
-</ul>
+<div class="list-group">
+  <a
+    class="list-group-item"
+    *ngFor="let item of items"
+    [routerLink]="item.routerLink"
+    routerLinkActive="active"
+  >
+    {{item.title}}
+  </a>
+</div>

@@ -1,3 +1,12 @@
 <app-header></app-header>
-<app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3" [ngClass]="{'hidden-xs': mobileMenuCollapse}">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-sm-8 col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

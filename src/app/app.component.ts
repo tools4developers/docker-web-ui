@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarService } from './services/sidebar.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  constructor(private sidebarService: SidebarService) {}
+
+  get mobileMenuCollapse(): boolean {
+    return this.sidebarService.getMobileMenuCollapseStatus();
+  }
 }
