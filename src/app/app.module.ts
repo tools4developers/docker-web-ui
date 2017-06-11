@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
-import { ImagesModule } from './modules/images/images.module';
 import { ContainersModule } from './modules/containers/containers.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { ImagesModule } from './modules/images/images.module';
 import { NetworksModule } from './modules/networks/networks.module';
 import { VolumesModule } from './modules/volumes/volumes.module';
 import { SettingsModule } from './modules/settings/settings.module';
@@ -20,6 +21,7 @@ import { SettingsModule } from './modules/settings/settings.module';
   imports: [
     BrowserModule,
     ContainersModule,
+    DashboardModule,
     ImagesModule,
     NetworksModule,
     SettingsModule,
