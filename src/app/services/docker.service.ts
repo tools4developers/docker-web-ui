@@ -6,7 +6,7 @@ import { SettingsService } from './settings.service';
 @Injectable()
 export abstract class DockerService {
 
-  constructor(private http: Http, private settingsService: SettingsService) { }
+  constructor(protected http: Http, private settingsService: SettingsService) { }
 
   /**
    * Get docker base url
