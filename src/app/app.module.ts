@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { ImagesModule } from './modules/images/images.module';
@@ -16,7 +15,6 @@ import { SettingsModule } from './modules/settings/settings.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    LayoutComponent,
     SidebarComponent,
   ],
   imports: [
