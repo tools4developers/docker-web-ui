@@ -1,3 +1,5 @@
-<p>
-  sidebar works!
-</p>
+<ul>
+  <li *ngFor="let item of items">
+    <a [routerLink]="item.routerLink" routerLinkActive="active">{{item.title}}</a>
+  </li>
+</ul>

@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+import { SidebarService } from './services/sidebar.service';
+
 import { ContainersModule } from './modules/containers/containers.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { ImagesModule } from './modules/images/images.module';
@@ -36,7 +38,7 @@ const routes: Routes = [
     SettingsModule,
     VolumesModule,
   ],
-  providers: [],
+  providers: [SidebarService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
