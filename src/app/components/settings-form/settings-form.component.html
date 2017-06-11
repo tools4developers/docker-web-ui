@@ -1,0 +1,28 @@
+<form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <div>
+    <label>
+      Docker Host:
+      <input formControlName="dockerHost">
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Docker Port:
+      <input formControlName="dockerPort">
+    </label>
+  </div>
+
+  <div>
+    <label>
+      <input type="checkbox" formControlName="isHttps">
+      Is HTTPS?
+    </label>
+  </div>
+
+  <div>
+    <input type="submit" value="Save">
+  </div>
+</form>
+
