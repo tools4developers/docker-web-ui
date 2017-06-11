@@ -1,0 +1,29 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 notify-wrapper">
+      <div
+        *ngFor="let notify of notifyStack; let i = index"
+        class="alert"
+        [ngClass]="{
+          'alert-dismissible': notify.closable,
+          'alert-success': isSuccess(notify),
+          'alert-info': isInfo(notify),
+          'alert-warning': isWarning(notify),
+          'alert-danger': isDanger(notify)
+        }"
+        role="alert"
+      >
+        <button
+          *ngIf="notify.closable"
+          type="button"
+          class="close"
+          (click)="onClose(i)"
+        >
+            <span>&times;</span>
+        </button>
+        {{ notify.message }}
+      </div>
+    </div>
+  </div>
+</div>

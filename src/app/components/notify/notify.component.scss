@@ -1,0 +1,26 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+.notify-wrapper {
+  position: absolute;
+  bottom: 25px;
+  z-index: 1000;
+
+  .alert {
+
+    &.alert-success {
+      box-shadow: 0 0 10px $brand-success;
+    }
+
+    &.alert-info {
+      box-shadow: 0 0 10px $brand-info;
+    }
+
+    &.alert-warning {
+      box-shadow: 0 0 10px $brand-warning;
+    }
+
+    &.alert-danger {
+      box-shadow: 0 0 10px $brand-danger;
+    }
+  }
+}

@@ -7,9 +7,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotifyComponent } from './components/notify/notify.component';
 import { SettingsFormComponent } from './components/settings-form/settings-form.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+import { NotifyService } from './services/notify.service';
 import { SidebarService } from './services/sidebar.service';
 import { SettingsService } from './services/settings.service';
 
@@ -33,6 +35,7 @@ const routes: Routes = [
     SidebarComponent,
     NotFoundComponent,
     SettingsFormComponent,
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ const routes: Routes = [
     VolumesModule,
   ],
   providers: [
+    NotifyService,
     SidebarService,
     SettingsService,
   ],

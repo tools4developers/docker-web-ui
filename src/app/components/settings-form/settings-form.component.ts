@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { SettingsService } from '../../services/settings.service';
+import { NotifyService } from '../../services/notify.service';
 
 import { SettingsModel } from '../../models/settings.model';
 
@@ -14,7 +15,9 @@ export class SettingsFormComponent implements OnInit {
 
   settingsForm: FormGroup;
 
-  constructor(private settingsService: SettingsService, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private settingsService: SettingsService,
+              private notifyService: NotifyService) {
     this.createForm();
   }
 
@@ -24,6 +27,7 @@ export class SettingsFormComponent implements OnInit {
 
   onSubmit(): void {
     this.settingsService.model = this.prepareModel();
+    this.notifyService.success('Settings saved');
   }
 
   private prepareModel(): SettingsModel {
