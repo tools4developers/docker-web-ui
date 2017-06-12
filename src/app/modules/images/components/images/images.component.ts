@@ -25,6 +25,13 @@ export class ImagesComponent implements OnInit {
 
     params.all = filterModel.showAll;
 
+    console.log(filterModel);
+    if (filterModel.reference) {
+      params.filters = JSON.stringify({
+        reference: [filterModel.reference]
+      });
+    }
+
     this.imagesService.getImages(params).subscribe(this.updateItems.bind(this));
   }
 

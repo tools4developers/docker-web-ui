@@ -16,6 +16,7 @@ export class ImagesListFilterComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.createForm();
+    this.subscribeChanges();
   }
 
   ngOnInit() {
@@ -29,7 +30,14 @@ export class ImagesListFilterComponent implements OnInit {
 
   private createForm(): void {
     this.form = this.fb.group({
-      showAll: false
+      showAll: false,
+      reference: '',
+    });
+  }
+
+  private subscribeChanges(): void {
+    this.form.valueChanges.subscribe(data => {
+      this.onSubmit();
     });
   }
 
@@ -38,6 +46,7 @@ export class ImagesListFilterComponent implements OnInit {
 
     return {
       showAll: formModel.showAll as boolean,
+      reference: formModel.reference as string,
     } as ImagesListFilterModel;
   }
 }
