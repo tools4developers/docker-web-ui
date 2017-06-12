@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ContainersComponent } from './components/containers/containers.component';
+
 import { SidebarService } from '../../services/sidebar.service';
+import { ContainersService } from './services/containers.service';
+
 import { SidebarMenuItemModel } from '../../models/sidebar-menu-item.model';
 
 const routes: Routes = [
@@ -15,6 +18,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
   ],
+  providers: [ContainersService],
   declarations: [ContainersComponent]
 })
 export class ContainersModule {
