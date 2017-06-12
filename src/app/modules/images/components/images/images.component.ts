@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ImagesService } from '../../services/images.service';
 import { ImageModel } from '../../models/image.model';
@@ -10,15 +10,11 @@ import { ImagesListParamsModel } from '../../models/images-list-params.model';
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss']
 })
-export class ImagesComponent implements OnInit {
+export class ImagesComponent {
 
   items: Array<ImageModel> = [];
 
   constructor(private imagesService: ImagesService) { }
-
-  ngOnInit() {
-    this.imagesService.getImages().subscribe(this.updateItems.bind(this));
-  }
 
   onChangeFilter(filterModel: ImagesListFilterModel): void {
     const params = new ImagesListParamsModel();

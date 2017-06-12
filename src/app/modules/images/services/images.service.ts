@@ -3,6 +3,7 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { DockerService } from '../../../services/docker.service';
 
@@ -26,6 +27,7 @@ export class ImagesService extends DockerService {
     const search = params || {};
 
     return this.http.get(url, {search})
-      .map((response: Response) => response.json() as Array<ImageModel>);
+      .map((response: Response) => response.json() as Array<ImageModel>)
+      .catch(this.handleError.bind(this));
   }
 }
