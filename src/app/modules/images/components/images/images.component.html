@@ -1,3 +1,9 @@
 <div class="panel panel-default">
+  <div class="panel-body">
+    <app-images-list-filter (changeFilter)="onChangeFilter($event)"></app-images-list-filter>
+  </div>
+</div>
+
+<div class="panel panel-default">
   <app-images-list [items]="items"></app-images-list>
 </div>

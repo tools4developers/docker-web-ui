@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-inline">
+  <div class="form-group">
+    <input type="checkbox" formControlName="showAll" id="showAll">
+    <label for="showAll">Show All</label>
+  </div>
+  <div class="form-group pull-right">
+    <input type="submit" value="Apply" class="btn btn-default">
+  </div>
+</form>
