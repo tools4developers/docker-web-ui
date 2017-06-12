@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ImageModel } from '../../models/image.model';
 
@@ -10,8 +10,22 @@ import { ImageModel } from '../../models/image.model';
 export class ImagesListComponent {
 
   @Input() items: ImageModel[];
+  @Output() deleteImage = new EventEmitter<ImageModel>();
+  @Output() forceDeleteImage = new EventEmitter<ImageModel>();
 
   constructor() { }
+
+  onDelete(item: ImageModel): void {
+    if (confirm('Are you sure you want to delete this image?')) {
+      this.deleteImage.emit(item);
+    }
+  }
+
+  onForceDelete(item: ImageModel) {
+    if (confirm('Are you sure you want to force delete this image?')) {
+      this.forceDeleteImage.emit(item);
+    }
+  }
 
   getIdTruncated(item: ImageModel): string {
     return item.Id.substr(7, 12);

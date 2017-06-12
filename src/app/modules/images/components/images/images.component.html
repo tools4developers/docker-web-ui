@@ -5,5 +5,9 @@
 </div>
 
 <div class="panel panel-default">
-  <app-images-list [items]="items"></app-images-list>
+  <app-images-list
+    [items]="items"
+    (deleteImage)="onDeleteImage($event)"
+    (forceDeleteImage)="onForceDeleteImage($event)"
+  ></app-images-list>
 </div>

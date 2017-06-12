@@ -5,6 +5,7 @@
     <th>Image ID</th>
     <th>Created</th>
     <th>Size</th>
+    <th>Actions</th>
   </tr>
   <tr *ngFor="let item of items">
     <td>{{ getRepository(item) }}</td>
@@ -12,5 +13,13 @@
     <td>{{ getIdTruncated(item) }}</td>
     <td>{{ getCreatedAsString(item) }}</td>
     <td>{{ getSizeAsString(item) }}</td>
+    <td>
+      <button class="btn btn-danger btn-sm" title="Delete this image" (click)="onDelete(item)">
+        <i class="glyphicon glyphicon-trash"></i>
+      </button>
+      <button class="btn btn-danger btn-sm" title="Force delete this image" (click)="onForceDelete(item)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </td>
   </tr>
 </table>
