@@ -6,4 +6,10 @@
   <div class="form-group">
     <input id="reference" formControlName="reference" class="form-control" placeholder="Reference">
   </div>
+  <div class="form-group">
+    <label for="dangling">Dangling</label>
+    <select id="dangling" formControlName="dangling" class="form-control">
+      <option *ngFor="let item of danglingItems" [value]="item.value">{{item.title}}</option>
+    </select>
+  </div>
 </form>
