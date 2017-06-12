@@ -27,10 +27,12 @@ export class ImagesListComponent {
     }
   }
 
+  // TODO: Move in pipe
   getIdTruncated(item: ImageModel): string {
     return item.Id.substr(7, 12);
   }
 
+  // TODO: Move in pipe
   getRepository(item: ImageModel): string {
     if (item.RepoTags && item.RepoTags.length !== 0) {
       const repoTag = item.RepoTags[0].split(':');
@@ -41,6 +43,7 @@ export class ImagesListComponent {
     return '';
   }
 
+  // TODO: Move in pipe
   getTag(item: ImageModel): string {
     if (item.RepoTags && item.RepoTags.length !== 0) {
       const repoTag = item.RepoTags[0].split(':');
@@ -49,18 +52,20 @@ export class ImagesListComponent {
     }
   }
 
+  // TODO: Move in pipe
   getCreatedAsString(item: ImageModel): string {
     const date = new Date(item.Created * 1000);
 
     return date.toDateString();
   }
 
+  // TODO: Move in pipe
   getSizeAsString(item: ImageModel): string {
     return this.humanFileSize(item.Size, true);
   }
 
   /**
-   * TODO: make pipe
+   * TODO: Move in pipe
    * @param bytes
    * @param si
    * @returns {string}

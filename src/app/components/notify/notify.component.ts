@@ -11,6 +11,7 @@ import { NOTIFY_MODEL_TYPE, NotifyModel } from '../../models/notify.model';
 })
 export class NotifyComponent implements OnInit {
 
+  // FIXME: Limit notifications
   notifyStack: Array<NotifyModel> = [];
 
   constructor(private notifyService: NotifyService) {}
