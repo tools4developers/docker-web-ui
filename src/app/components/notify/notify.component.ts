@@ -30,18 +30,22 @@ export class NotifyComponent implements OnInit {
     });
   }
 
+  // TODO: Refactoring, create one method for detect CSS class
   public isSuccess(notify: NotifyModel): boolean {
     return notify.type === NOTIFY_MODEL_TYPE.SUCCESS;
   }
 
+  // TODO: Refactoring, create one method for detect CSS class
   public isDanger(notify: NotifyModel): boolean {
     return notify.type === NOTIFY_MODEL_TYPE.ERROR;
   }
 
+  // TODO: Refactoring, create one method for detect CSS class
   public isWarning(notify: NotifyModel): boolean {
     return notify.type === NOTIFY_MODEL_TYPE.WARNING;
   }
 
+  // TODO: Refactoring, create one method for detect CSS class
   public isInfo(notify: NotifyModel): boolean {
     return notify.type === NOTIFY_MODEL_TYPE.INFO;
   }
