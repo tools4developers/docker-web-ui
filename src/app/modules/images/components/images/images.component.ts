@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ImagesService } from '../../services/images.service';
+import { ImageModel } from '../../models/image.model';
+
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImagesComponent implements OnInit {
 
-  constructor() { }
+  items: Array<ImageModel> = [];
+
+  constructor(private imagesService: ImagesService) { }
 
   ngOnInit() {
+    this.imagesService.getImages().subscribe((items: Array<ImageModel>) => this.items = items);
   }
 
 }
