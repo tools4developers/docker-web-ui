@@ -7,10 +7,10 @@
     <th>Size</th>
   </tr>
   <tr *ngFor="let item of items">
-    <td>{{ item.Repository }}</td>
-    <td>{{ item.Tag }}</td>
-    <td>{{ item.Id }}</td>
-    <td>{{ item.Created }}</td>
-    <td>{{ item.Size }}</td>
+    <td>{{ getRepository(item) }}</td>
+    <td>{{ getTag(item) }}</td>
+    <td>{{ getIdTruncated(item) }}</td>
+    <td>{{ getCreatedAsString(item) }}</td>
+    <td>{{ getSizeAsString(item) }}</td>
   </tr>
 </table>
