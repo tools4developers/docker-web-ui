@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ImagesComponent } from './components/images/images.component';
+import { ImagesListComponent } from './components/images-list/images-list.component';
 
 import { ImagesService } from './services/images.service';
 import { SidebarService } from '../../services/sidebar.service';
@@ -19,7 +20,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   providers: [ImagesService],
-  declarations: [ImagesComponent],
+  declarations: [ImagesComponent, ImagesListComponent],
 })
 export class ImagesModule {
   constructor(private sidebarService: SidebarService) {

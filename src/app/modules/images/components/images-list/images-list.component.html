@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <tr>
+    <th>Repository</th>
+    <th>Tag</th>
+    <th>Image ID</th>
+    <th>Created</th>
+    <th>Size</th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{ item.Repository }}</td>
+    <td>{{ item.Tag }}</td>
+    <td>{{ item.Id }}</td>
+    <td>{{ item.Created }}</td>
+    <td>{{ item.Size }}</td>
+  </tr>
+</table>
