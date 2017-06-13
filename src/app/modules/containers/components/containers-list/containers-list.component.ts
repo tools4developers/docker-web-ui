@@ -9,9 +9,14 @@ import { ContainerModel, ExposedPortModel } from '../../models/container.model';
 export class ContainersListComponent {
 
   @Input() items: Array<ContainerModel>;
+  @Output() startContainer = new EventEmitter<ContainerModel>();
   @Output() stopContainer = new EventEmitter<ContainerModel>();
 
   constructor() { }
+
+  onStart(item: ContainerModel) {
+    this.startContainer.emit(item);
+  }
 
   onStop(item: ContainerModel) {
     if (confirm('Are you sure you want to stop this container?')) {

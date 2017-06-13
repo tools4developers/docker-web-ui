@@ -24,6 +24,13 @@ export class ContainersComponent {
     this.updateItems();
   }
 
+  onStartContainer(item: ContainerModel) {
+    this.containersService.startContainer(item.Id).subscribe(() => {
+      // TODO: update started item and replace in items list
+      this.updateItems();
+    })
+  }
+
   onStopContainer(item: ContainerModel) {
     this.containersService.stopContainer(item.Id).subscribe(() => {
       // TODO: update stoped item and replace in items list

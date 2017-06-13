@@ -22,6 +22,14 @@
       <td>{{ item.Names.join(', ') }}</td>
       <td>
         <button
+          *ngIf="item.State !== 'running'"
+          class="btn btn-success"
+          title="Start this container"
+          (click)="onStart(item)"
+        >
+          <i class="glyphicon glyphicon-play"></i>
+        </button>
+        <button
           *ngIf="item.State === 'running'"
           class="btn btn-danger"
           title="Stop this container"
