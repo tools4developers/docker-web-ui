@@ -14,6 +14,21 @@ import { ContainerModel } from '../models/container.model';
 export class ContainersService extends DockerService {
 
   /**
+   * Start a container
+   *
+   * @param id
+   * @param params
+   */
+  public startContainer(id: string, params?: {}): Observable<any> {
+    const url = `${this.getDockerBaseUrl()}containers/${id}/start`;
+    const search = params || {};
+
+    return this.http.post(url, {}, {search})
+      .map((response: Response) => response.json())
+      .catch(this.handleError.bind(this));
+  }
+
+  /**
    * Stop a container
    *
    * @param id
