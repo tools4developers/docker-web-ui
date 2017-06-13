@@ -8,6 +8,7 @@ import { SidebarService } from '../../services/sidebar.service';
 import { ContainersService } from './services/containers.service';
 
 import { SidebarMenuItemModel } from '../../models/sidebar-menu-item.model';
+import { ContainersListComponent } from './components/containers-list/containers-list.component';
 
 const routes: Routes = [
   { path: 'containers', component: ContainersComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   providers: [ContainersService],
-  declarations: [ContainersComponent]
+  declarations: [ContainersComponent, ContainersListComponent]
 })
 export class ContainersModule {
   constructor(private sidebarService: SidebarService) {

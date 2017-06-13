@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th>Container ID</th>
+      <th>Image</th>
+      <th>Command</th>
+      <th>Created</th>
+      <th>Status</th>
+      <th>Ports</th>
+      <th>Names</th>
+    </tr>
+    <tr *ngFor="let item of items">
+      <td>{{ getIdTruncated(item) }}</td>
+      <td>{{ item.Image }}</td>
+      <td><pre>{{ item.Command }}</pre></td>
+      <td>{{ getCreatedAsString(item) }}</td>
+      <td>{{ item.Status }}</td>
+      <td>
+        <span *ngFor="let port of item.Ports">
+          {{ renderPortItem(port) }}
+        </span>
+      </td>
+      <td>{{ item.Names.join(', ') }}</td>
+    </tr>
+  </table>
+</div>
