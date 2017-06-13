@@ -62,4 +62,9 @@ export class ContainerModel {
    */
   Status: string;
 
+  /**
+   * The state of this container (e.g. Exited)
+   */
+  State: string;
+
 }

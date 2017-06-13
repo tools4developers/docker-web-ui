@@ -7,6 +7,7 @@
       <th>Status</th>
       <th>Ports</th>
       <th>Names</th>
+      <th>Actions</th>
     </tr>
     <tr *ngFor="let item of items">
       <td>{{ getIdTruncated(item) }}</td>
@@ -19,6 +20,16 @@
         </span>
       </td>
       <td>{{ item.Names.join(', ') }}</td>
+      <td>
+        <button
+          *ngIf="item.State === 'running'"
+          class="btn btn-danger"
+          title="Stop this container"
+          (click)="onStop(item)"
+        >
+          <i class="glyphicon glyphicon-stop"></i>
+        </button>
+      </td>
     </tr>
   </table>
 </div>

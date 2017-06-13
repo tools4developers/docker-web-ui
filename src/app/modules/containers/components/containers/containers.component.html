@@ -5,5 +5,8 @@
 </div>
 
 <div class="panel panel-default">
-  <app-containers-list [items]="items"></app-containers-list>
+  <app-containers-list
+    [items]="items"
+    (stopContainer)="onStopContainer($event)"
+  ></app-containers-list>
 </div>

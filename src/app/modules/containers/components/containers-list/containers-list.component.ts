@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContainerModel, ExposedPortModel } from '../../models/container.model';
 
 @Component({
@@ -6,13 +6,17 @@ import { ContainerModel, ExposedPortModel } from '../../models/container.model';
   templateUrl: './containers-list.component.html',
   styleUrls: ['./containers-list.component.scss']
 })
-export class ContainersListComponent implements OnInit {
+export class ContainersListComponent {
 
   @Input() items: Array<ContainerModel>;
+  @Output() stopContainer = new EventEmitter<ContainerModel>();
 
   constructor() { }
 
-  ngOnInit() {
+  onStop(item: ContainerModel) {
+    if (confirm('Are you sure you want to stop this container?')) {
+      this.stopContainer.emit(item);
+    }
   }
 
   // TODO: Move in pipe

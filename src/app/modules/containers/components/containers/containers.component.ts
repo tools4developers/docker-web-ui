@@ -13,17 +13,27 @@ export class ContainersComponent {
 
   items: Array<ContainerModel> = [];
 
+  private listParams: ContainersListParamsModel;
+
   constructor(private containersService: ContainersService) { }
 
   onChangeFilter(filterModel: ContainersListFilterModel): void {
-    const params = new ContainersListParamsModel();
+    this.listParams = new ContainersListParamsModel();
+    this.listParams.all = filterModel.showAll;
 
-    params.all = filterModel.showAll;
-
-    this.containersService.getContainers(params).subscribe(this.updateItems.bind(this));
+    this.updateItems();
   }
 
-  private updateItems(items: Array<ContainerModel>): void {
-    this.items = items;
+  onStopContainer(item: ContainerModel) {
+    this.containersService.stopContainer(item.Id).subscribe(() => {
+      // TODO: update stoped item and replace in items list
+      this.updateItems();
+    });
+  }
+
+  private updateItems(): void {
+    this.containersService.getContainers(this.listParams).subscribe((items: Array<ContainerModel>) => {
+      this.items = items;
+    });
   }
 }
