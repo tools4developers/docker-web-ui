@@ -44,6 +44,21 @@ export class ContainersService extends DockerService {
   }
 
   /**
+   * Remove a container
+   *
+   * @param id
+   * @param params
+   */
+  public removeContainer(id: string, params?: {}): Observable<any> {
+    const url = `${this.getDockerBaseUrl()}containers/${id}`;
+    const search = params || {};
+
+    return this.http.delete(url, {search})
+      .map((response: Response) => response.json())
+      .catch(this.handleError.bind(this));
+  }
+
+  /**
    * Get list of containers
    *
    * Returns a list of containers on the server.
