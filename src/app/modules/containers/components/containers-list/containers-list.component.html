@@ -3,7 +3,6 @@
     <tr>
       <th>Container ID</th>
       <th>Image</th>
-      <th>Command</th>
       <th>Created</th>
       <th>Status</th>
       <th>Ports</th>
@@ -12,7 +11,6 @@
     <tr *ngFor="let item of items">
       <td>{{ getIdTruncated(item) }}</td>
       <td>{{ item.Image }}</td>
-      <td><pre>{{ item.Command }}</pre></td>
       <td>{{ getCreatedAsString(item) }}</td>
       <td>{{ item.Status }}</td>
       <td>
