@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Driver</th>
+    <th>Scope</th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{ getIdTruncated(item) }}</td>
+    <td>{{ item.Name }}</td>
+    <td>{{ item.Driver }}</td>
+    <td>{{ item.Scope }}</td>
+  </tr>
+</table>
