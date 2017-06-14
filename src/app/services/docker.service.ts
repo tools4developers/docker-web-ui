@@ -7,7 +7,7 @@ import { NotifyService } from './notify.service';
 @Injectable()
 export abstract class DockerService {
 
-  constructor(protected http: Http, private settingsService: SettingsService, private notifyService: NotifyService) { }
+  constructor(protected http: Http, protected notifyService: NotifyService, private settingsService: SettingsService) { }
 
   /**
    * Get docker base url
