@@ -38,9 +38,24 @@ export class ContainersComponent {
     });
   }
 
+  onRemoveContainer(item: ContainerModel) {
+    this.removeItem(item, false);
+  }
+
+  onForceRemoveContainer(item: ContainerModel) {
+    this.removeItem(item, true);
+  }
+
   private updateItems(): void {
     this.containersService.getContainers(this.listParams).subscribe((items: Array<ContainerModel>) => {
       this.items = items;
+    });
+  }
+
+  private removeItem(item: ContainerModel, force: boolean): void {
+    this.containersService.removeContainer(item.Id, {force}).subscribe(() => {
+      // TODO: removed item remove from items list
+      this.updateItems();
     });
   }
 }

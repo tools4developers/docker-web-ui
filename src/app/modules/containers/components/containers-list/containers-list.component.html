@@ -37,6 +37,12 @@
         >
           <i class="glyphicon glyphicon-stop"></i>
         </button>
+        <button class="btn btn-danger" title="Remove this container" (click)="onRemove(item)">
+          <i class="glyphicon glyphicon-trash"></i>
+        </button>
+        <button class="btn btn-danger" title="Force remove this container" (click)="onForceRemove(item)">
+          <i class="glyphicon glyphicon-remove"></i>
+        </button>
       </td>
     </tr>
   </table>
