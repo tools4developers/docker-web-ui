@@ -21,4 +21,14 @@ export class VolumesComponent implements OnInit {
     });
   }
 
+  onRemoveVolume(item: VolumeModel): void {
+    this.volumesService.removeVolume(item.Name).subscribe(() => {
+      const index = this.items.indexOf(item);
+
+      if (index !== -1) {
+        this.items.splice(index, 1);
+      }
+    })
+  }
+
 }

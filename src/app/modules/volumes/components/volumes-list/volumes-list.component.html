@@ -2,9 +2,15 @@
   <tr>
     <th>Name</th>
     <th>Driver</th>
+    <th>Actions</th>
   </tr>
   <tr *ngFor="let item of items">
     <td>{{ item.Name }}</td>
     <td>{{ item.Driver }}</td>
+    <td>
+      <button class="btn btn-danger" (click)="onRemove(item)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </td>
   </tr>
 </table>
