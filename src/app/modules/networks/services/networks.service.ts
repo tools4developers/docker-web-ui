@@ -26,4 +26,17 @@ export class NetworksService extends DockerService {
       .map((response: Response) => response.json() as Array<NetworkModel>)
       .catch(this.handleError.bind(this));
   }
+
+  /**
+   * Remove network by ID
+   *
+   * @param id
+   */
+  public removeNetwork(id: string): Observable<any> {
+    const url = `${this.getDockerBaseUrl()}networks/${id}`;
+
+    return this.http.delete(url)
+      .map((response: Response) => response.json())
+      .catch(this.handleError.bind(this));
+  }
 }
