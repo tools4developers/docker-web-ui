@@ -36,4 +36,17 @@ export class VolumesService extends DockerService {
       }).catch(this.handleError.bind(this));
   }
 
+  /**
+   * Remove a volume
+   *
+   * @param name
+   */
+  public removeVolume(name: string): Observable<any> {
+    const url = `${this.getDockerBaseUrl()}/volumes/${name}`;
+
+    return this.http.delete(url)
+      .map((response: Response) => response.json())
+      .catch(this.handleError.bind(this));
+  }
+
 }
