@@ -23,7 +23,7 @@ export class VolumesService extends DockerService {
     const url = `${this.getDockerBaseUrl()}volumes`;
     const search = params || {};
 
-    return this.http.get(url, params)
+    return this.http.get(url, {search})
       .map((response: Response) => response.json() as VolumesListResponseModel)
       .map((response: VolumesListResponseModel) => {
         if (response.Warnings && response.Warnings.length !== 0) {
