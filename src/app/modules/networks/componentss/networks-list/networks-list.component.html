@@ -4,11 +4,17 @@
     <th>Name</th>
     <th>Driver</th>
     <th>Scope</th>
+    <th>Actions</th>
   </tr>
   <tr *ngFor="let item of items">
     <td>{{ getIdTruncated(item) }}</td>
     <td>{{ item.Name }}</td>
     <td>{{ item.Driver }}</td>
     <td>{{ item.Scope }}</td>
+    <td>
+      <button class="btn btn-danger" (click)="onRemove(item)">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </td>
   </tr>
 </table>

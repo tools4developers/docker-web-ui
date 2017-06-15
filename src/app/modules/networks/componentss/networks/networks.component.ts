@@ -19,4 +19,14 @@ export class NetworksComponent implements OnInit {
     });
   }
 
+  onRemoveNetwork(item: NetworkModel): void {
+    this.networksService.removeNetwork(item.Id).subscribe(() => {
+      const index = this.items.indexOf(item);
+
+      if (index !== -1) {
+        this.items.splice(index, 1);
+      }
+    });
+  }
+
 }
