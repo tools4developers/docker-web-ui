@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule as NgCommonModule } from '@angular/common';
 
 import { UnixMsDateStringPipe } from './pipes/unix-ms-date-string.pipe';
+import { HumanizeFileSizePipe } from './pipes/humanize-file-size.pipe';
 
 @NgModule({
   imports: [
@@ -9,9 +10,11 @@ import { UnixMsDateStringPipe } from './pipes/unix-ms-date-string.pipe';
   ],
   exports: [
     UnixMsDateStringPipe,
+    HumanizeFileSizePipe,
   ],
   declarations: [
-    UnixMsDateStringPipe
+    UnixMsDateStringPipe,
+    HumanizeFileSizePipe
   ]
 })
 export class CommonModule { }

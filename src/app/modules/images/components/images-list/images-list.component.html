@@ -8,11 +8,11 @@
     <th>Actions</th>
   </tr>
   <tr *ngFor="let item of items">
-    <td>{{ getRepository(item) }}</td>
-    <td>{{ getTag(item) }}</td>
-    <td>{{ getIdTruncated(item) }}</td>
-    <td>{{ getCreatedAsString(item) }}</td>
-    <td>{{ getSizeAsString(item) }}</td>
+    <td>{{ item | imageRepository }}</td>
+    <td>{{ item | imageTag }}</td>
+    <td>{{ item | imageIdTruncate }}</td>
+    <td>{{ item.Created | unixMsDateString }}</td>
+    <td>{{ item.Size | humanizeFileSize:true }}</td>
     <td>
       <button class="btn btn-danger btn-sm" title="Delete this image" (click)="onDelete(item)">
         <i class="glyphicon glyphicon-trash"></i>
