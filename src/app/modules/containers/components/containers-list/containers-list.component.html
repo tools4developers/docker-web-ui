@@ -10,13 +10,13 @@
       <th>Actions</th>
     </tr>
     <tr *ngFor="let item of items">
-      <td>{{ getIdTruncated(item) }}</td>
+      <td>{{ item | containerIdTruncated }}</td>
       <td>{{ item.Image }}</td>
-      <td>{{ getCreatedAsString(item) }}</td>
+      <td>{{ item.Created | unixMsDateString }}</td>
       <td>{{ item.Status }}</td>
       <td>
         <span *ngFor="let port of item.Ports">
-          {{ renderPortItem(port) }}
+          {{ port | containerPort }}
         </span>
       </td>
       <td>{{ item.Names.join(', ') }}</td>
