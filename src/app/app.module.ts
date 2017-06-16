@@ -22,6 +22,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { ImagesModule } from './modules/images/images.module';
 import { NetworksModule } from './modules/networks/networks.module';
 import { VolumesModule } from './modules/volumes/volumes.module';
+import { NotifyClassSuffixPipe } from './pipes/notify-class-suffix.pipe';
 
 const routes: Routes = [
   { path: 'settings', component: SettingsFormComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
     NotFoundComponent,
     SettingsFormComponent,
     NotifyComponent,
+    NotifyClassSuffixPipe,
   ],
   imports: [
     BrowserModule,

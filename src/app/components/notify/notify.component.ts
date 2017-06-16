@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NotifyService } from '../../services/notify.service';
 
-import { NOTIFY_MODEL_TYPE, NotifyModel } from '../../models/notify.model';
+import { NotifyModel } from '../../models/notify.model';
 
 @Component({
   selector: 'app-notify',
@@ -25,26 +25,6 @@ export class NotifyComponent implements OnInit {
         this.onClose(notify);
       }, NotifyComponent.TIME_TO_CLOSE);
     });
-  }
-
-  // TODO: Refactoring, create one method for detect CSS class
-  public isSuccess(notify: NotifyModel): boolean {
-    return notify.type === NOTIFY_MODEL_TYPE.SUCCESS;
-  }
-
-  // TODO: Refactoring, create one method for detect CSS class
-  public isDanger(notify: NotifyModel): boolean {
-    return notify.type === NOTIFY_MODEL_TYPE.ERROR;
-  }
-
-  // TODO: Refactoring, create one method for detect CSS class
-  public isWarning(notify: NotifyModel): boolean {
-    return notify.type === NOTIFY_MODEL_TYPE.WARNING;
-  }
-
-  // TODO: Refactoring, create one method for detect CSS class
-  public isInfo(notify: NotifyModel): boolean {
-    return notify.type === NOTIFY_MODEL_TYPE.INFO;
   }
 
   public onClose(notify: NotifyModel): void {

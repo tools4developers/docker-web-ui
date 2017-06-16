@@ -4,14 +4,7 @@
     <div class="col-sm-12 notify-wrapper">
       <div
         *ngFor="let notify of notifyStack | slice:0:3"
-        class="alert"
-        [ngClass]="{
-          'alert-dismissible': notify.closable,
-          'alert-success': isSuccess(notify),
-          'alert-info': isInfo(notify),
-          'alert-warning': isWarning(notify),
-          'alert-danger': isDanger(notify)
-        }"
+        class="alert alert-{{ notify | notifyClassSuffix }}"
         role="alert"
       >
         <button
