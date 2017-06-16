@@ -11,7 +11,8 @@ import { NOTIFY_MODEL_TYPE, NotifyModel } from '../../models/notify.model';
 })
 export class NotifyComponent implements OnInit {
 
-  // FIXME: Limit notifications
+  public static readonly TIME_TO_CLOSE = 5000;
+
   notifyStack: Array<NotifyModel> = [];
 
   constructor(private notifyService: NotifyService) {}
@@ -20,13 +21,9 @@ export class NotifyComponent implements OnInit {
     this.notifyService.listenNotify((notify: NotifyModel) => {
       this.notifyStack.push(notify);
 
-      const index = this.notifyStack.indexOf(notify);
-
-      if (index !== -1) {
-        setTimeout(() => {
-          this.onClose(index);
-        }, 2000);
-      }
+      setTimeout(() => {
+        this.onClose(notify);
+      }, NotifyComponent.TIME_TO_CLOSE);
     });
   }
 
@@ -50,7 +47,11 @@ export class NotifyComponent implements OnInit {
     return notify.type === NOTIFY_MODEL_TYPE.INFO;
   }
 
-  public onClose(index: number): void {
-    this.notifyStack.splice(index, 1);
+  public onClose(notify: NotifyModel): void {
+    const index = this.notifyStack.indexOf(notify);
+
+    if (index !== -1) {
+      this.notifyStack.splice(index, 1);
+    }
   }
 }

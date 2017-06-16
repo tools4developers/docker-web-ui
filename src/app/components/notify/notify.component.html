@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-12 notify-wrapper">
       <div
-        *ngFor="let notify of notifyStack; let i = index"
+        *ngFor="let notify of notifyStack | slice:0:3"
         class="alert"
         [ngClass]="{
           'alert-dismissible': notify.closable,
@@ -18,7 +18,7 @@
           *ngIf="notify.closable"
           type="button"
           class="close"
-          (click)="onClose(i)"
+          (click)="onClose(notify)"
         >
             <span>&times;</span>
         </button>
