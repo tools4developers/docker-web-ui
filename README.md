@@ -4,6 +4,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
+## Docker run
+
+Run app in docker
+
+```
+docker run \
+  -t \
+  -p 8080:8080 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  tools4developers/docker-web-ui
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
