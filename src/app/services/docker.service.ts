@@ -6,7 +6,7 @@ import { NotifyService } from './notify.service';
 @Injectable()
 export abstract class DockerService {
 
-  public static readonly API_END_POINT = '/apis/';
+  public static readonly API_END_POINT = '/api/';
 
   constructor(protected http: Http, protected notifyService: NotifyService) { }
 
