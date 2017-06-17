@@ -1,4 +1,5 @@
 language: node_js
+
 cache:
   directories:
     - "node_modules"
@@ -8,3 +9,12 @@ install:
 
 script:
   - npm run test-ci
+
+after_success:
+  - npm run build-prod
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker build -t "$DOCKER_IMAGE";
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push "$DOCKER_IMAGE";
+    fi
+
