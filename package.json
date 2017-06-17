@@ -1,6 +1,6 @@
 {
   "name": "docker-web-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,7 @@
     "watch": "ng build --watch",
     "watch-prod": "ng build --watch --target production --environment prod --vendorChunk --extract-css",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint --type-check",
     "e2e": "ng e2e"
   },
   "private": true,

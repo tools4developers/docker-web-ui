@@ -1,4 +1,4 @@
-export enum FILTER_DANGLING {
+export enum ImagesListFilterDangling {
   NONE,
   NO,
   YES,
@@ -7,12 +7,12 @@ export enum FILTER_DANGLING {
 export class ImagesListFilterModel {
   showAll: boolean;
   reference: string;
-  dangling: FILTER_DANGLING;
+  dangling: ImagesListFilterDangling;
 
   constructor() {
     this.showAll = false;
     this.reference = '';
-    this.dangling = FILTER_DANGLING.NONE;
+    this.dangling = ImagesListFilterDangling.NONE;
   }
 }
 

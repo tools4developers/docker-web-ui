@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FILTER_DANGLING, ImagesListFilterModel } from '../../models/images-list-filter.model';
+import { ImagesListFilterDangling, ImagesListFilterModel } from '../../models/images-list-filter.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -13,16 +13,16 @@ export class ImagesListFilterComponent implements OnInit {
 
   form: FormGroup;
   model = new ImagesListFilterModel();
-  danglingItems: Array<{value: FILTER_DANGLING, title: string}>;
+  danglingItems: Array<{value: ImagesListFilterDangling, title: string}>;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
     this.subscribeChanges();
 
     this.danglingItems = [
-      { value: FILTER_DANGLING.NONE, title: 'None' },
-      { value: FILTER_DANGLING.NO, title: 'No' },
-      { value: FILTER_DANGLING.YES, title: 'Yes' },
+      { value: ImagesListFilterDangling.NONE, title: 'None' },
+      { value: ImagesListFilterDangling.NO, title: 'No' },
+      { value: ImagesListFilterDangling.YES, title: 'Yes' },
     ];
   }
 
@@ -39,23 +39,24 @@ export class ImagesListFilterComponent implements OnInit {
     this.form = this.fb.group({
       showAll: false,
       reference: '',
-      dangling: FILTER_DANGLING.NONE,
+      dangling: ImagesListFilterDangling.NONE,
     });
   }
 
   private subscribeChanges(): void {
-    this.form.valueChanges.subscribe(data => {
+    this.form.valueChanges.subscribe(() => {
       this.onSubmit();
     });
   }
 
   private prepareModel(): ImagesListFilterModel {
     const formModel = this.form.value;
+    const dangling: string = ImagesListFilterDangling[formModel.dangling];
 
     return {
       showAll: formModel.showAll as boolean,
       reference: formModel.reference as string,
-      dangling: formModel.dangling as FILTER_DANGLING,
+      dangling: ImagesListFilterDangling[dangling],
     } as ImagesListFilterModel;
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { ImagesService } from '../../services/images.service';
 import { ImageModel } from '../../models/image.model';
-import { FILTER_DANGLING, ImagesListFilterModel } from '../../models/images-list-filter.model';
+import { ImagesListFilterDangling, ImagesListFilterModel } from '../../models/images-list-filter.model';
 import { ImagesListParamsModel } from '../../models/images-list-params.model';
 import { NotifyService } from '../../../../services/notify.service';
 
@@ -20,6 +20,7 @@ export class ImagesComponent {
   onChangeFilter(filterModel: ImagesListFilterModel): void {
     const params = new ImagesListParamsModel();
     const filters = {};
+    const dangling: ImagesListFilterDangling = filterModel.dangling;
 
     params.all = filterModel.showAll;
 
@@ -27,13 +28,9 @@ export class ImagesComponent {
       filters['reference'] = [filterModel.reference];
     }
 
-    // noinspection TsLint
-    if (filterModel.dangling == FILTER_DANGLING.YES) {
+    if (dangling === ImagesListFilterDangling.YES) {
       filters['dangling'] = ['true'];
-    }
-
-    // noinspection TsLint
-    if (filterModel.dangling == FILTER_DANGLING.NO) {
+    } else if (dangling === ImagesListFilterDangling.NO) {
       filters['dangling'] = ['false'];
     }
 
