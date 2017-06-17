@@ -19,7 +19,7 @@ export class NetworksService extends DockerService {
    * @param params
    */
   public getNetworks(params?: NetworksListParams): Observable<Array<NetworkModel>> {
-    const url = `${this.getDockerBaseUrl()}networks`;
+    const url = `${NetworksService.API_END_POINT}networks`;
     const search = params || {};
 
     return this.http.get(url, {search})
@@ -33,7 +33,7 @@ export class NetworksService extends DockerService {
    * @param id
    */
   public removeNetwork(id: string): Observable<any> {
-    const url = `${this.getDockerBaseUrl()}networks/${id}`;
+    const url = `${NetworksService.API_END_POINT}networks/${id}`;
 
     return this.http.delete(url)
       .map((response: Response) => response.json())

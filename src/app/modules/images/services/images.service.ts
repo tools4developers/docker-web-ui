@@ -24,7 +24,7 @@ export class ImagesService extends DockerService {
    * @returns {any}
    */
   public getImages(params?: ImagesListParamsModel): Observable<Array<ImageModel>> {
-    const url = `${this.getDockerBaseUrl()}images/json`;
+    const url = `${ImagesService.API_END_POINT}images`;
     const search = params || {};
 
     return this.http.get(url, {search})
@@ -42,7 +42,7 @@ export class ImagesService extends DockerService {
    * @return {any}
    */
   public removeImage(name: string, params?: ImagesDeleteParamsModel): Observable<any> {
-    const url = `${this.getDockerBaseUrl()}images/${name}`;
+    const url = `${ImagesService.API_END_POINT}images/${name}`;
     const search = params || {};
 
     return this.http.delete(url, {search})

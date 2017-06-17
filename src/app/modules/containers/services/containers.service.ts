@@ -20,7 +20,7 @@ export class ContainersService extends DockerService {
    * @param params
    */
   public startContainer(id: string, params?: {}): Observable<any> {
-    const url = `${this.getDockerBaseUrl()}containers/${id}/start`;
+    const url = `${ContainersService.API_END_POINT}containers/${id}/start`;
     const search = params || {};
 
     return this.http.post(url, {}, {search})
@@ -35,7 +35,7 @@ export class ContainersService extends DockerService {
    * @param params
    */
   public stopContainer(id: string, params?: {}): Observable<any> {
-    const url = `${this.getDockerBaseUrl()}containers/${id}/stop`;
+    const url = `${ContainersService.API_END_POINT}containers/${id}/stop`;
     const search = params || {};
 
     return this.http.post(url, {}, {search})
@@ -50,7 +50,7 @@ export class ContainersService extends DockerService {
    * @param params
    */
   public removeContainer(id: string, params?: {}): Observable<any> {
-    const url = `${this.getDockerBaseUrl()}containers/${id}`;
+    const url = `${ContainersService.API_END_POINT}containers/${id}`;
     const search = params || {};
 
     return this.http.delete(url, {search})
@@ -67,7 +67,7 @@ export class ContainersService extends DockerService {
    * @return {any}
    */
   public getContainers(params?: ContainersListParamsModel): Observable<Array<ContainerModel>> {
-    const url = `${this.getDockerBaseUrl()}containers/json`;
+    const url = `${ContainersService.API_END_POINT}containers`;
     const search = params || {};
 
     return this.http.get(url, {search})

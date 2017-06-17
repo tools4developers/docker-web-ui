@@ -1,25 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, ResponseType } from '@angular/http';
 
-import { SettingsService } from './settings.service';
 import { NotifyService } from './notify.service';
 
 @Injectable()
 export abstract class DockerService {
 
-  constructor(protected http: Http, protected notifyService: NotifyService, private settingsService: SettingsService) { }
+  public static readonly API_END_POINT = '/api/';
 
-  /**
-   * Get docker base url
-   *
-   * @returns {string}
-   */
-  protected getDockerBaseUrl(): string {
-    const settingsModel = this.settingsService.model;
-    const protocol = settingsModel.isHttps ? 'https' : 'http';
-
-    return `${protocol}://${settingsModel.dockerHost}:${settingsModel.dockerPort}/`;
-  }
+  constructor(protected http: Http, protected notifyService: NotifyService) { }
 
   protected handleError(error: Response): void {
     let message: string;

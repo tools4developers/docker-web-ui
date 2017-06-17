@@ -20,7 +20,7 @@ export class VolumesService extends DockerService {
    * @param params
    */
   public getVolumes(params?: VolumesListParamsModel): Observable<Array<VolumeModel>> {
-    const url = `${this.getDockerBaseUrl()}volumes`;
+    const url = `${VolumesService.API_END_POINT}volumes`;
     const search = params || {};
 
     return this.http.get(url, {search})
@@ -42,7 +42,7 @@ export class VolumesService extends DockerService {
    * @param name
    */
   public removeVolume(name: string): Observable<any> {
-    const url = `${this.getDockerBaseUrl()}/volumes/${name}`;
+    const url = `${VolumesService.API_END_POINT}volumes/${name}`;
 
     return this.http.delete(url)
       .map((response: Response) => response.json())
