@@ -10,7 +10,7 @@
     "watch": "ng build --watch",
     "watch-prod": "ng build --watch --target production --environment prod --vendorChunk --extract-css",
     "test": "ng test",
-    "test-ci": "ng test --browsers PhantomJS --single-run",
+    "test-ci": "ng test --browsers PhantomJS",
     "lint": "ng lint --type-check",
     "e2e": "ng e2e"
   },
