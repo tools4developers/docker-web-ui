@@ -1,20 +1,32 @@
-export class SystemInfoPluginsModel {
-  Volume: Array<string>;
-  Network: Array<string>;
-  Authrization: Array<string>;
-  Log: Array<string>;
-}
-
 export class SystemInfoModel {
   Architecture: string;
   Containers: number;
   ContainersRunning: number;
+  ContainersPaused: number;
   ContainersStopped: number;
   Images: number;
   Driver: string;
-  DriverStatus: Array<Array<string>>;
-  Plugins: SystemInfoPluginsModel;
+  DockerRootDir: string;
   OSType: string;
+  OperatingSystem: string;
+  KernelVersion: string;
   NCPU: number;
-  MemoryTotal: number;
+  MemTotal: number;
+  Name: string;
+  ServerVersion: string;
+  SystemTime: Date;
+  MemoryLimit: boolean;
+  SwapLimit: boolean;
+  KernelMemory: boolean;
+  CpuCfsPeriod: boolean;
+  CpuCfsQuota: boolean;
+  CPUShares: boolean;
+  CPUSet: boolean;
+  IPv4Forwarding: boolean;
+  BridgeNfIptables: boolean;
+  BridgeNfIp6tables: boolean;
+  Debug: boolean;
+  OomKillDisable: boolean;
+  ExperimentalBuild: boolean;
+  LiveRestoreEnabled: boolean;
 }

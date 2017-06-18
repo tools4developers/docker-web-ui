@@ -1,7 +1,183 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <p>
-      dashboard works!
-    </p>
+<div class="row" *ngIf="model">
+  <div class="col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Host Info</h4>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>Name</th>
+            <td>{{ model.Name }}</td>
+          </tr>
+          <tr>
+            <th>Architecture</th>
+            <td>{{ model.Architecture }}</td>
+          </tr>
+          <tr>
+            <th>OS Type</th>
+            <td>{{ model.OSType }}</td>
+          </tr>
+          <tr>
+            <th>Operation System</th>
+            <td>{{ model.OperatingSystem }}</td>
+          </tr>
+          <tr>
+            <th>Kernel Version</th>
+            <td>{{ model.KernelVersion }}</td>
+          </tr>
+          <tr>
+            <th>Number of CPU</th>
+            <td>{{ model.NCPU }}</td>
+          </tr>
+          <tr>
+            <th>Memory Total</th>
+            <td>{{ model.MemTotal | humanizeFileSize:true }}</td>
+          </tr>
+          <tr>
+            <th>System Time</th>
+            <td>{{ model.SystemTime }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Docker Info</h4>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>Version</th>
+            <td>{{ model.ServerVersion }}</td>
+          </tr>
+          <tr>
+            <th>Docker Root Dir</th>
+            <td>{{ model.DockerRootDir }}</td>
+          </tr>
+          <tr>
+            <th>Driver</th>
+            <td>{{ model.Driver }}</td>
+          </tr>
+          <tr>
+            <th>Images</th>
+            <td>{{ model.Images }}</td>
+          </tr>
+          <tr>
+            <th>Containers</th>
+            <td>{{ model.Containers }}</td>
+          </tr>
+          <tr>
+            <th>Containers Running</th>
+            <td>{{ model.ContainersRunning }}</td>
+          </tr>
+          <tr>
+            <th>Containers Paused</th>
+            <td>{{ model.ContainersPaused }}</td>
+          </tr>
+          <tr>
+            <th>Containers Stopped</th>
+            <td>{{ model.ContainersStopped }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Other Info</h4>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>Memory Limit</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.MemoryLimit"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Swap Limit</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.SwapLimit"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Kernel Memory</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.KernelMemory"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>CPU CFS Period</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.CpuCfsPeriod"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>CPU CFS Quota</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.CpuCfsQuota"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>CPU Shares</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.CPUShares"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>CPU Set</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.CPUSet"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>IPv4 Forwarding</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.IPv4Forwarding"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Bridge NF IPTables</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.BridgeNfIptables"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Bridge NF IP6Tables</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.BridgeNfIp6tables"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Debug</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.Debug"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>OOM Kill Disable</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.OomKillDisable"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Experimental Build</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.ExperimentalBuild"></app-boolean-glyphicon>
+            </td>
+          </tr>
+          <tr>
+            <th>Live Restore Enabled</th>
+            <td>
+              <app-boolean-glyphicon [value]="model.LiveRestoreEnabled"></app-boolean-glyphicon>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
