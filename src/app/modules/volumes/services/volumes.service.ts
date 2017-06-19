@@ -10,6 +10,8 @@ import { DockerService } from '../../../services/docker.service';
 import { VolumeModel } from '../models/volume.model';
 import { VolumesListParamsModel } from '../models/volumes-list-params.model';
 import { VolumesListResponseModel } from '../models/volumes-list-response.model';
+import { VolumesPruneParamsModel } from '../models/volumes-prune-params.model';
+import { VolumesPruneResponseModel } from '../models/volumes-prune-response.model';
 
 @Injectable()
 export class VolumesService extends DockerService {
@@ -49,4 +51,17 @@ export class VolumesService extends DockerService {
       .catch(this.handleError.bind(this));
   }
 
+  /**
+   * Delete unused volumes
+   *
+   * @param params
+   */
+  public pruneNetworks(params?: VolumesPruneParamsModel): Observable<VolumesPruneResponseModel> {
+    const url = `${VolumesService.API_END_POINT}volumes/prune`;
+    const search = params || {};
+
+    return this.http.post(url, {search})
+      .map((response: Response) => response.json() as VolumesPruneResponseModel)
+      .catch(this.handleError.bind(this));
+  }
 }
