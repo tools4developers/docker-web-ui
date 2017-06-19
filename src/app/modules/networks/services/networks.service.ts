@@ -49,9 +49,9 @@ export class NetworksService extends DockerService {
    */
   public pruneNetworks(params?: NetworksPruneParamsModel): Observable<NetworksPruneResponseModel> {
     const url = `${NetworksService.API_END_POINT}networks/prune`;
-    const search = params || {};
+    const body = params || {};
 
-    return this.http.post(url, {search})
+    return this.http.post(url, body)
       .map((response: Response) => response.json() as Array<NetworksPruneResponseModel>)
       .catch(this.handleError.bind(this));
   }

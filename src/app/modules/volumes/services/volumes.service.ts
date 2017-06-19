@@ -58,9 +58,9 @@ export class VolumesService extends DockerService {
    */
   public pruneVolumes(params?: VolumesPruneParamsModel): Observable<VolumesPruneResponseModel> {
     const url = `${VolumesService.API_END_POINT}volumes/prune`;
-    const search = params || {};
+    const body = params || {};
 
-    return this.http.post(url, {search})
+    return this.http.post(url, body)
       .map((response: Response) => response.json() as VolumesPruneResponseModel)
       .catch(this.handleError.bind(this));
   }
