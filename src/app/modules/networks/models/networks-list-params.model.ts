@@ -1,4 +1,4 @@
-export class NetworksListParams {
+export class NetworksListParamsModel {
   /**
    * JSON encoded value of the filters (a map[string][]string) to process on the networks list.
    * Available filters:
