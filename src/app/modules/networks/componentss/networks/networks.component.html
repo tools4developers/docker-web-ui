@@ -1,3 +1,9 @@
 <div class="panel panel-default">
+  <div class="panel-heading">
+    <button class="btn btn-danger btn-xs" title="Delete all unused networks" (click)="onPruneNetworks()">
+      <span class="glyphicon glyphicon-trash"></span>
+      Prune
+    </button>
+  </div>
   <app-networks-list [items]="items" (removeNetwork)="onRemoveNetwork($event)"></app-networks-list>
 </div>

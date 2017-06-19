@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule as NgCommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
+import { CommonModule } from '../common/common.module';
 
 import { SidebarService } from '../../services/sidebar.service';
 import { VolumesService } from './services/volumes.service';
@@ -16,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    NgCommonModule,
     CommonModule,
     RouterModule.forChild(routes),
   ],

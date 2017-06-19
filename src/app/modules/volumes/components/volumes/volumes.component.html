@@ -1,3 +1,9 @@
 <div class="panel panel-default">
+  <div class="panel-heading">
+    <button class="btn btn-danger btn-xs" title="Prune all unused volumes" (click)="onPruneVolumes()">
+      <span class="glyphicon glyphicon-trash"></span>
+      Prune
+    </button>
+  </div>
   <app-volumes-list [items]="items" (removeVolume)="onRemoveVolume($event)"></app-volumes-list>
 </div>
