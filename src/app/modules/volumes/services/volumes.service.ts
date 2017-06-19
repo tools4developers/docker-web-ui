@@ -56,7 +56,7 @@ export class VolumesService extends DockerService {
    *
    * @param params
    */
-  public pruneNetworks(params?: VolumesPruneParamsModel): Observable<VolumesPruneResponseModel> {
+  public pruneVolumes(params?: VolumesPruneParamsModel): Observable<VolumesPruneResponseModel> {
     const url = `${VolumesService.API_END_POINT}volumes/prune`;
     const search = params || {};
 
